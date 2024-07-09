@@ -1,0 +1,38 @@
+a=10
+b=1.0
+c=18
+print(a,b,c)
+print(type(a),type(b),type(c))
+
+x=input()
+y=int(input())
+z=float(input())
+print(x,y,z)
+print(x,y,z,sep='*',end='#\n')
+
+c=36+18j
+print(c,c.imag,c.real,end="\n")
+
+d,e=input('ENTER FIRST NAME: '),input('ENTER LAST NAME: ')
+print(d,e)
+
+f=0b10010
+g=0o0511
+h=0x2006
+print(type(f),type(g),type(h))
+print(f,g,h,sep='❤️‍🔥️')
+
+i="THIS IS"
+j="called"
+k="🌍️"
+print(i,j,k)
+
+l=True
+m=False
+n=True+32
+o=False+18
+print(l,m)
+print(n,o,sep='❤️‍🩹️',end='♾️\n')
+#anaconda software
+#jupiternotebook
+#googlecolab
