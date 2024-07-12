@@ -1,0 +1,12 @@
+CREATE TABLE studen(rollno number(2),name varchar(2),bname varchar(2),perc number(5,2));
+
+
+alter table studen ADD column email varchar(20); 
+INSERT INTO studen(rollno,name,bname,perc,email)
+VALUES(18,'VIRAT','CSE',93.6,'cheeku@gmail.com');
+INSERT INTO studen(rollno,name,bname,perc,email)
+VALUES(1,'VIRA','CS',93.8,'vee@gmail.com');
+INSERT INTO studen(rollno,name,bname,perc,email)
+VALUES(8,'VIR','CE',93.65,'vir@gmail.com');
+SELECT *
+FROM studen;
