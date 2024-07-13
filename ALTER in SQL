@@ -13,3 +13,23 @@ VALUES(33,'HARDIK','AI&ML',91.5,'hp33@gmail.com','GUJARAT');
 
 SELECT *
 FROM student;
+
+or 
+for updating
+
+
+
+UPDATE student
+set village='MUMBAI'
+WHERE name='CHEEKU' or name='RAVI';
+
+UPDATE student
+set village='HYDERABAD'
+WHERE name='VIJAY';
+
+UPDATE student
+set village='BANGLORE'
+WHERE name='RAHUL' or name='HARDIK';
+
+SELECT *
+FROM student;
