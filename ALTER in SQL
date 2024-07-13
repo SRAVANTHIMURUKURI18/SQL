@@ -1,0 +1,15 @@
+CREATE TABLE student(rollno number(2),name varchar(20),bname varchar(20),perc number(5,2),email varchar(20));
+ALTER TABLE student ADD column village varchar(20);
+INSERT INTO student(rollno,name,bname,perc,email,village)
+VALUES(18,'CHEEKU','CSE',97.3,'cheeku@gmail.com','gurugram');
+INSERT INTO student(rollno,name,bname,perc,email,village)
+VALUES(19,'VIJAY','CS',73.8,'vijay@gmail.com','tatipaka');
+INSERT INTO student(rollno,name,bname,perc,email,village)
+VALUES(8,'RAVI','CE',89.65,'ravi@gmail.com','rajanagar');
+INSERT INTO student(rollno,name,bname,perc,email,village)
+VALUES(1,'RAHUL','IT',95.65,'rahul@gmail.com','BANGLORE');
+INSERT INTO student(rollno,name,bname,perc,email,village)
+VALUES(33,'HARDIK','AI&ML',91.5,'hp33@gmail.com','GUJARAT');
+
+SELECT *
+FROM student;
