@@ -1,0 +1,4 @@
+DELETE from student
+    where name='RAVI';
+SELECT *
+FROM student;
