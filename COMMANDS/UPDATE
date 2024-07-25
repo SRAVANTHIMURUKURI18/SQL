@@ -1,0 +1,5 @@
+update student
+    set name='ABD'
+    where name='VIJAY';
+SELECT *
+FROM student;
