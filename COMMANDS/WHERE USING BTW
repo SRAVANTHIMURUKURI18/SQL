@@ -1,0 +1,4 @@
+
+SELECT *
+FROM student
+where perc between 95 and 98;
