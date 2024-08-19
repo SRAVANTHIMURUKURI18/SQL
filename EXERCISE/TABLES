@@ -84,7 +84,10 @@ where sal<(select sal
 
 12)select rownum,emp.*
     from emp;
+
+
 13)
+SELECT CURRENT_DATE FROM DUAL;
 
 14)
 select distinct job
@@ -97,6 +100,11 @@ select ename,dname
 from emp,dept
     where emp.deptno=dept.deptno and comm IS NOT NULL;
 17)
+SELECT empno, 
+       ename, 
+       sal, 
+       sal * 1.15 AS increased_salary
+FROM emp;
 
 
 18)
@@ -148,6 +156,11 @@ select ename
 
 27)
 28)
+SELECT deptno
+FROM emp
+GROUP BY deptno
+HAVING COUNT(empno) = 3;
+
 29)
 select sum(sal),dname
     from emp,dept
@@ -181,7 +194,10 @@ where deptno IN (select deptno
      where job!='MANAGER';
 
 35)
+SELECT ename || ' belongs to ' || deptno
+FROM emp;
 
+36)
 
 
 
@@ -242,5 +258,37 @@ set ename='ANDY'
 where ename='JAMES';
 
 49)
+UPDATE emp
+SET sal = sal * 1.05
+WHERE comm < 1000;
 
-     
+
+50)
+UPDATE emp
+SET sal = sal + 100
+WHERE sal > (
+    SELECT AVG(sal)
+    FROM emp e2
+    WHERE e2.deptno = emp.deptno
+);
+select *
+from emp;
+
+51)
+UPDATE emp
+SET sal = sal * 1.01
+WHERE sal = (
+    SELECT MIN(sal)
+    FROM emp
+    WHERE deptno = 10
+)
+AND deptno = 10;
+
+
+52)
+UPDATE emp
+SET comm = comm + 10
+WHERE deptno=(select deptno from dept where loc = 'NEW YORK');
+
+select *
+from emp;
