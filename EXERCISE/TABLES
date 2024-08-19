@@ -100,6 +100,9 @@ from emp,dept
 
 
 18)
+select e1.ename ename,e2.ename mgrname
+from emp e1,emp e2
+where e1.mgr=e2.empno;
 
 
 
@@ -162,7 +165,15 @@ select ename, empno, dname, loc from emp, dept
      where emp.deptno=dept.deptno;
 
 32)
+select dname
+from dept
+where deptno NOT IN (select deptno
+                      from emp);
 33)
+select dname
+from dept
+where deptno IN (select deptno
+                      from emp);
 
 34)
  select ename 
@@ -181,12 +192,25 @@ select *
      from emp
      where ename='JAMES';
 
+or
+
+select *
+from dept
+where deptno IN (select deptno from emp where ename='JAMES');
+
 40)
 select *
      from emp
      where sal<=(select sal
                  from emp
                 where ename='ADAMS');
+
+41)
+select *
+from emp 
+where mgr=(select empno from emp where ename='BLAKE');
+
+
 42)
 select ename
      from emp
@@ -197,4 +221,26 @@ select ename
  select ename, sal, dname, loc 
      from emp,dept
      where emp.deptno=dept.deptno;
+
+44)
+select ename
+from emp natural join dept 
+where loc='DALLAS';
+
+45)
+delete from emp
+where deptno=10 or deptno=20;
+
+46)
+delete from emp
+where comm is NULL;
+
+
+48)
+update emp
+set ename='ANDY'
+where ename='JAMES';
+
+49)
+
      
