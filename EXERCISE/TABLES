@@ -77,7 +77,7 @@ where (mgr=7698 or mgr=7566)and sal>1500;
 
 11)select *
 from emp
-where sal<(select sal
+where sal< all (select sal
         from emp
          where ename='FORD');
 
@@ -217,7 +217,7 @@ where deptno IN (select deptno from emp where ename='JAMES');
 40)
 select *
      from emp
-     where sal<=(select sal
+     where sal<= all (select sal
                  from emp
                 where ename='ADAMS')
 minus
