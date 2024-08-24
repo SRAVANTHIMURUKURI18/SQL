@@ -27,38 +27,39 @@ insert into emp values(7934, 'MILLER', 'CLERK', 7782, to_date('23-1-1982','dd-mm
 
 
 
-1)
+1)Display all the records in emp table.
 select *
 from emp;
 
-2)
+2)Display all the records in emp table where employee belongs to deptno 10.
 select *
 from emp
 where deptno=10;
 
-3)
+3)Display all the records in emp table where employee does not belong to deptno 30.
 select *
 from emp
 where deptno!=30;
 
-4)
+4)Display total number of records in Emp table.
 select count(*)
 from emp;
 
-5)
+5) Display emp table with salary descending order.
 select *
 from emp
 order by sal desc;
 
-6)SELECT * FROM emp FETCH FIRST 5 ROWS ONLY;
+6)Display first five records in employee table.
+SELECT * FROM emp FETCH FIRST 5 ROWS ONLY;
 
-7)
+7) Display all the records in emp table order by ascending deptno, descending salary.
 select *
 from emp
 order by deptno,sal desc;
 
 
-8)
+8)) Display all employees those who were joined in year 1981.
 select *
 from emp
 where hiredate between '31-DEC-80' and '01-JAN-82';
@@ -67,7 +68,8 @@ where hiredate between '31-DEC-80' and '01-JAN-82';
 
 
 
-10)
+10) Display the records in emp table where MGR in 7698,7566 and sal should be greater then
+1500
 select *
 from emp
 where (mgr=7698 or mgr=7566)and sal>1500;
@@ -75,31 +77,34 @@ where (mgr=7698 or mgr=7566)and sal>1500;
 
 
 
-11)select *
+11)Display all employees where their salary is less then the Ford’s salary?
+select *
 from emp
 where sal< all (select sal
         from emp
          where ename='FORD');
 
 
-12)select rownum,emp.*
+12)) Display all the records in EMP table along with the rowed.
+select rownum,emp.*
     from emp;
 
 
-13)
+13) Write a query to display current date.
 SELECT CURRENT_DATE FROM DUAL;
 
-14)
+14)Display distinct job from emp table.
 select distinct job
 from emp;
 
 15)
 
-16)
+16) Write a query to display the employee name, department name of all employees who earn a
+commission.
 select ename,dname
 from emp,dept
     where emp.deptno=dept.deptno and comm IS NOT NULL;
-17)
+17) Display the empno, ename, sal, and salary increased by 15%.
 SELECT empno, 
        ename, 
        sal, 
@@ -107,93 +112,94 @@ SELECT empno,
 FROM emp;
 
 
-18)
+18) Display employee names and corresponding manager names
 select e1.ename ename,e2.ename mgrname
 from emp e1,emp e2
 where e1.mgr=e2.empno;
 
 
 
-19)
+19)Display all the departments where employee salary greater than average salary of that
+department.
 select distinct dname
     from dept,emp
     where emp.deptno=dept.deptno and sal>(select avg(sal)
                                            from emp);
 
-20)
+20) Display employees where length of ename is 5
 select ename
     from emp
     where ename like '_____';
 
-21)
+21)Display all employees where ename start with J and ends with S
 select ename
     from emp
     where ename like 'J%_S';
 
-22)
+22)Display all employees where employee does not belong to 10,20,40
 select ename
     from emp
     where deptno!=10 and deptno!=20 and deptno!=40;
     
-23)
+23)Display all employees where jobs does not belong to PRESIDENT and MANAGER.
 select ename
     from emp
     where job!='PRESIDENT' and job!='MANAGER';
 
-24)
+24) Display the maximum salary in the emp table
 select max(sal)
     from emp;
 
-25)
+25) Display average salary for job SALESMAN
 select max(sal)
     from emp
     where job='SALESMAN';
 
-26)
+26) Display all ename where first character could be anything, but second character should be L.
 select ename
     from emp
     where ename like '_L%_' or ename like '_%l';
 
 27)
-28)
+28)Display all the departments where department has 3 employees.
 SELECT deptno
 FROM emp
 GROUP BY deptno
 HAVING COUNT(empno) = 3;
 
-29)
+29)Display sum of salary for each department.
 select sum(sal),dname
     from emp,dept
     where emp.deptno=dept.deptno
     group by dname;
 
-30)
+30) Display all department with Minimum salary and maximum salary?
 select dname dept,min(sal) min,max(sal) max
     from emp,dept
     where emp.deptno=dept.deptno
     group by dname;
 
-31)
+31)Display all ename, empno, dname, loc from emp, dept table.
 select ename, empno, dname, loc from emp, dept
      where emp.deptno=dept.deptno;
 
-32)
+32)Display all the departments where department does not have any employees
 select dname
 from dept
 where deptno NOT IN (select deptno
                       from emp);
-33)
+33)Display all the departments where department does have atleast one employee
 select dname
 from dept
 where deptno IN (select deptno
                       from emp);
 
-34)
+34)) Display all employees those who are not managers.
  select ename 
      from emp
      where job!='MANAGER';
 
-35)
+35)Display ename, deptno from emp table with format of {ename} belongs to {deptno}
 SELECT ename || ' belongs to ' || deptno
 FROM emp;
 
@@ -203,7 +209,7 @@ FROM emp;
 
 
 
-39)
+39) Display all the records for deptno which belongs to employee name JAMES.
 select *
      from emp
      where ename='JAMES';
@@ -214,7 +220,8 @@ select *
 from dept
 where deptno IN (select deptno from emp where ename='JAMES');
 
-40)
+40)Display all the records in emp table where salary should be less than or equal to ADAMS
+salary.
 select *
      from emp
      where sal<= all (select sal
@@ -225,49 +232,49 @@ select *
 from emp
 where ename='ADAMS';
 
-41)
+41) Display all subordinate those who are working under BLAKE.
 select *
 from emp 
 where mgr=(select empno from emp where ename='BLAKE');
 
 
-42)
+42)Display who is making highest commission
 select ename
      from emp
      where comm=(select max(comm)
                  from emp
             );
-43)
+43) Display ename, sal, grade, dname, loc for each employee.
  select ename, sal, dname, loc 
      from emp,dept
      where emp.deptno=dept.deptno;
 
-44)
+44)Display all employee whose location is DALLAS.
 select ename
 from emp natural join dept 
 where loc='DALLAS';
 
-45)
+45)Delete emp records for detpno 10 and 20.
 delete from emp
 where deptno=10 or deptno=20;
 
-46)
+46)Delete all employees those are not getting any commission.
 delete from emp
 where comm is NULL;
 
 
-48)
+48)Rename the employee name JONES to ANDY
 update emp
 set ename='ANDY'
-where ename='JAMES';
+where ename='JONES';
 
-49)
+49) Increase the salary 5% for employee those who are earning commission less then 1000
 UPDATE emp
 SET sal = sal * 1.05
 WHERE comm < 1000;
 
 
-50)
+50) Increase 100$ for employee who is making more then averge salary of his department.
 UPDATE emp
 SET sal = sal + 100
 WHERE sal > (
@@ -278,7 +285,7 @@ WHERE sal > (
 select *
 from emp;
 
-51)
+51) Increase 1% salary for employee who is making lowest salary in dept 10
 UPDATE emp
 SET sal = sal * 1.01
 WHERE sal = (
@@ -289,7 +296,7 @@ WHERE sal = (
 AND deptno = 10;
 
 
-52)
+52) Increase commission 10$ for employees those who are located in NEW YORK.
 UPDATE emp
 SET comm = comm + 10
 WHERE deptno=(select deptno from dept where loc = 'NEW YORK');
