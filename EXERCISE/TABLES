@@ -39,7 +39,7 @@ where deptno=10;
 3)Display all the records in emp table where employee does not belong to deptno 30.
 select *
 from emp
-where deptno!=30;
+where deptno<>30;
 
 4)Display total number of records in Emp table.
 select count(*)
@@ -139,12 +139,12 @@ select ename
 22)Display all employees where employee does not belong to 10,20,40
 select ename
     from emp
-    where deptno!=10 and deptno!=20 and deptno!=40;
+    where deptno<>10 and deptno<>20 and deptno<>40;
     
 23)Display all employees where jobs does not belong to PRESIDENT and MANAGER.
 select ename
     from emp
-    where job!='PRESIDENT' and job!='MANAGER';
+    where job!='PRESIDENT' and job<>'MANAGER';
 
 24) Display the maximum salary in the emp table
 select max(sal)
