@@ -219,7 +219,11 @@ select *
      from emp
      where sal<=(select sal
                  from emp
-                where ename='ADAMS');
+                where ename='ADAMS')
+minus
+select *
+from emp
+where ename='ADAMS';
 
 41)
 select *
